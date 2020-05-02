@@ -7,8 +7,8 @@ var express = require('express');
 var app = express();
 
 // socket.io
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var https = require('https').Server(app);
+var io = require('socket.io')(https);
 
 // lodash
 var lodash = require('lodash');
@@ -648,6 +648,6 @@ io.on('connection', function(socket) {
   });
 });
 
-var server = http.listen(process.env.PORT || 3000, function() {
+var server = https.listen(process.env.PORT || 443, function() {
   console.log('Listening on port %d.', server.address().port);
 });
